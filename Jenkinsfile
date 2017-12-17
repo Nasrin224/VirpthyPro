@@ -3,7 +3,7 @@ node {
      echo 'source code is checkout out'
      git credentialsId: 'Github-ID', url: 'https://github.com/DKPMOrg/VirpthyPro.git'
    }
-   stage('Build and Test') {
+   stage('Build and Test') { //for buiding & testing
      echo 'Build is triggered with test execution'
      sh 'mvn clean compile'
     }
