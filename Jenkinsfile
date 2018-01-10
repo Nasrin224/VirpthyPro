@@ -8,12 +8,7 @@ node {
      sh 'mvn clean compile'
     }
     
-    stage('build & SonarQube Scan') {
-    withSonarQubeEnv('My SonarQube Server') {
-      sh 'mvn clean package sonar:sonar'
-       } // SonarQube taskId is automatically attached to the pipeline context
-    }
-   
+    
    stage('Deploy to DEV') {
      echo 'Deploying to Dev environment'
    }
