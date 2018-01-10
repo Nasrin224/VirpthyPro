@@ -5,7 +5,9 @@ node {
    }
    stage('Build and Test') {
      echo 'Build is triggered with test execution'
-     sh 'mvn compile'
+     withMaven(jdk: 'java 1.8.0_151', maven: 'maven 3.5.2') {
+         sh 'mvn compile'
+     }
     }
    
    stage('Deploy to DEV') {
@@ -13,6 +15,8 @@ node {
    }
    stage('Test Execution on Dev') {
      echo 'Test execution on Dev'
+       withMaven(jdk: 'java 1.8.0_151', maven: 'maven 3.5.2') {
      sh 'mvn test'
+       }
    }
 }
